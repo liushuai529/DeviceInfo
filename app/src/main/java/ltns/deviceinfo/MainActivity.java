@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
     private void collectDeviceInfo() {
         DeviceInfoManager.NewInstance(this)
                 .addCollector(new PhoneBasicInfoCollector(this, "basic"))       //Andorid设备基本信息（PhoneBasicInfoCollector）
-                .addCollector(new SimInfoCollector(this, "sim"))                //Sim卡信息（SimInfoCollector）同时识别多张Sim卡
+//                .addCollector(new SimInfoCollector(this, "sim"))                //Sim卡信息（SimInfoCollector）同时识别多张Sim卡
                 .addCollector(new CpuInfoCollector(this, "cpu"))                //Cpu信息（CpuInfoCollector）
                 .addCollector(new BoardInfoCollector(this, "board"))            //主板信息（BoardInfoCollector）
                 .addCollector(new BatteryInfoCollector(this, "battery"))        //电池信息（BatteryInfoCollector）

@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "ltns.deviceinfo"
-        minSdkVersion 14
+        minSdkVersion 23
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -25,7 +25,12 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+//    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta4'
+//    compile 'com.android.support.constraint:constraint-layout:latest_version'
+
+    implementation 'com.trustwallet:wallet-core:2.0.16'  //  https://github.com/trustwallet/wallet-core
+    implementation 'com.trustwallet.walletcore:walletcore:0.10.0' //https://github.com/trustwallet/developer/blob/c8ba1bbe71cb1e16f66d33f0018e7514f5892b08/wallet-core/android-guide.md
+    implementation "com.trustwallet:wallet-core:0.12.31" //https://developer.trustwallet.com/wallet-core/integration-guide/android-guide    Android Integration Guide
     testCompile 'junit:junit:4.12'
     compile project(':deviceinfolib')
 }

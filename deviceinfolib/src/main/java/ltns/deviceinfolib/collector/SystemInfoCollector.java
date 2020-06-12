@@ -55,8 +55,11 @@ public class SystemInfoCollector extends BaseDeviceInfoCollector {
     protected void doCollectAutomatically() {
         {
             String buildPropPath = DEFAULT_PROP_PATH;
-            if (new File(BUILD_PROP_PATH).exists())
+            if (new File(BUILD_PROP_PATH).exists()) {
                 buildPropPath = BUILD_PROP_PATH;
+
+            }
+
             Log.i("--->", buildPropPath);
             put(BUILD_PROP, readFileByLines(buildPropPath));
         }
@@ -70,8 +73,11 @@ public class SystemInfoCollector extends BaseDeviceInfoCollector {
 //        }
         {
             String systemApp = SYSTEM_APP_PATH;
-            if (new File(SYSTEM_APP_PATH_1).exists())
+            if (new File(SYSTEM_APP_PATH_1).exists()){
                 systemApp = SYSTEM_APP_PATH_1;
+                Log.i("--->", "文件存在");
+            }
+
             put(SYSTEM_APP,getFiles(systemApp));
         }
 

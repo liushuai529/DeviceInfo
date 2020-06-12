@@ -2,6 +2,7 @@ package ltns.deviceinfolib.collector;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -76,7 +77,7 @@ public class CpuInfoCollector extends BaseDeviceInfoCollector {
         put(CPU_x,getArchType(mContext));
 
 
-        collectOtherCpuInfo();
+//        collectOtherCpuInfo();
     }
 
     @Override
@@ -404,9 +405,10 @@ public class CpuInfoCollector extends BaseDeviceInfoCollector {
                     continue;
                 } else {
                     String[] CPUusr = Result.split("%");
-                    String[] CPUusage = CPUusr[0].split("User");
-                    String[] SYSusage = CPUusr[1].split("System");
-                    rate = Integer.parseInt(CPUusage[1].trim()) + Integer.parseInt(SYSusage[1].trim());
+                    Log.i("tags", Result);
+//                    String[] CPUusage = CPUusr[0].split("User");
+//                    String[] SYSusage = CPUusr[1].split("System");
+//                    rate = Integer.parseInt(CPUusage[1].trim()) + Integer.parseInt(SYSusage[1].trim());
                     break;
                 }
             }
@@ -430,7 +432,8 @@ public class CpuInfoCollector extends BaseDeviceInfoCollector {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        long totalCpu = Long.parseLong(cpuInfos[2])
+
+        long totalCpu = cpuInfos == null ? 0 : Long.parseLong(cpuInfos[2])
                 + Long.parseLong(cpuInfos[3]) + Long.parseLong(cpuInfos[4])
                 + Long.parseLong(cpuInfos[6]) + Long.parseLong(cpuInfos[5])
                 + Long.parseLong(cpuInfos[7]) + Long.parseLong(cpuInfos[8]);
